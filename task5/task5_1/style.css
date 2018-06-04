@@ -1,0 +1,18 @@
+input[type=text] {
+     font-size: 30pt;
+     height: 100px;
+     width: 150px;
+     margin:0;
+}
+button{
+     margin: 10px;
+     height: 60px;
+     width: 250px;
+     font-size: 18pt;
+     color: green;
+}
+#answer{
+	font-size: 30pt;
+	color:red;
+	
+}

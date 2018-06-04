@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Counties</title>
+</head>
+<body>
+   <select name="jump" id="jump" onChange="jump('parent',this,0)">
+   <option id="1" value="URL">Select country</option>  
+   <option id="2" value="URL">Kazakhstan</option>
+   <option id="3" value="URL">Korea</option>
+   <option id="4" value="URL">China</option>
+   <option id="5" value="URL">Japan</option>
+</select>
+<select name="jumpMenu" id="jumpMenu" onChange="jumpMenu('parent',this,0)">
+   <option id="1" value="URL">Select city</option>  // 
+   <option id="2" value="URL">Almaty</option>
+   <option id="3" value="URL">Aktau</option>
+   <option id="4" value="URL">Astana</option>
+   <option id="5" value="URL">Atyrau</option>
+</select>
+<script type="text/javascript">
+function display(optionID){
+   var all_options = document.getElementById("jumpMenu").options;
+   for (i=0; i<all_options.length; i++){
+      if (all_options[i].id == optionID) {
+         all_options[i].selected = true;
+      }
+   }
+};
+display("1");
+</script>
+</body>
+</html>

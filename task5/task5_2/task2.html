@@ -1,0 +1,41 @@
+<html>
+     <head>
+          <meta charset="utf-8">
+         
+          <title></title>
+     <style type="text/css">
+     .images {
+     position: absolute;
+     bottom: 0%;
+     right: calc(50vw - 150px);
+     left: 2%;
+}
+
+.increase {
+     position: fixed;
+     top: 2%;
+     left: 2%;
+     right: calc(50vw - 150px);
+}
+</style>
+<script type="text/javascript">
+     function increase(a) {
+     document.getElementById('inc').src = a;
+}
+
+</script>
+     </head>
+     <body>
+          <div class="increase">
+               <img id = "inc" src="1.png" width=60%;>
+          </div>
+          <div class="images">
+               <img src="1.png" width=77px; onclick='increase("1.png")'>
+               <img src="2.png" width=77px; onclick='increase("2.png")'>
+               <img src="3.png" width=77px; onclick='increase("3.png")'>
+               <img src="4.png" width=77px; onclick='increase("4.png")'>
+               <img src="5.png" width=77px; onclick='increase("5.png")'>
+               <img src="7.jpg" width=77px; onclick='increase("7.jpg")'>
+          </div>
+     </body>
+</html>

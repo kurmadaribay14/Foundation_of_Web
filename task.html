@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <style>
+      #cards .card {
+         border: 1px solid red;
+         display: flex;
+         width: 300px;
+      }
+
+      #cards .card .title {
+         flex-grow: 1;
+      }
+
+      #cards .card .price {
+         font-weight: bold;
+         padding-right: 20px;
+      }
+
+      #loading {
+         display: none;
+      }
+
+      #cards {
+         width: 300px;
+         height: 200px;
+         border: 1px solid blue;
+      }
+   </style>
+
+</head>
+
+<body>
+   <button>Load</button>
+   <div>
+      <button id="sortByMaker">Bill</button>
+      <button id="sortByHighest">Sort by highest</button>
+   </div>
+   <div id="cards">
+      <img width="300px" height="200px" id="loading" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />
+   </div>
+
+
+   <script defer>
+      var listCards;
+
+      function onStreamProcessed(json) {
+         listCards = json;
+         display(listCards);
+      }
+
+      function display(listCards_) {
+         document.getElementById('cards').innerHTML = ""; //A JavaScript changes the content (innerHTML) of that element to ""
+         for (let i = 0; i < listCards_.length; i++) {
+            let div = document.createElement('div');
+            div.className = "name";
+            let surname = document.createElement('div');
+            surname.className = "surname";
+            surname.innerHTML = listCards_[i]["surname"] + " " + listCards_[i]["model"];
+            div.appendChild(surname);
+            let salary = document.createElement('div');
+            salary.className = "salary";
+            salary.innerHTML = listCards_[i]["salary"];
+            div.appendChild(salary);
+            document.getElementById('cards').appendChild(div);
+            document.querySelector('button').innerHTML = "Items are Loaded";
+         }
+      }
+
+      function onResponse(response) {
+         return response.json();
+      }
+
+      function onError(error) {
+         console.log('Error: ' + error);
+      }
+
+      function displayCards() {
+         document.querySelector('button').innerHTML = "Loading...";
+         document.getElementById('loading').style.display = "flex";
+         const cards = fetch('http://demo9984861.mockable.io/listWorker').then(onResponse, onError);
+         cards.then(onStreamProcessed);
+      }
+
+      function sortByMaker() {
+         //var l = listCards.length - 1;
+         var elements = document.getElementsByClassName('name');
+         var requiredElement = "Bill";
+         
+        // document.getElementById("demo").innerHTML = "Bill";
+        for (let j = 0; j < listCards.length; j++) {
+            for (let i = 0; i < l; i++) {
+               if (listCards[i]['name'] > listCards[i + 1]['name']) {
+                  let temp = listCards[i];
+                  listCards[i] = listCards[i + 1];
+                  listCards[i + 1] = temp;
+               }
+            }
+            l--;
+         }
+         display(listCards);
+      }
+
+      function sortByHighest() {
+         var l = listCards.length - 1;
+         for (let j = 0; j < listCards.length; j++) {
+            for (let i = 0; i < l; i++) {
+               if (listCards[i]['price'] < listCards[i+1]['price']) {
+                  let temp = listCards[i];
+                  listCards[i] = listCards[i + 1];
+                  listCards[i + 1] = temp;
+               }
+            }
+            l--;
+         }
+         display(listCards);
+      }
+      document.querySelector('button').addEventListener("click", displayCards);
+      document.getElementById('sortByMaker').addEventListener("click", sortByMaker);
+      document.getElementById('sortByHighest').addEventListener("click", sortByHighest);
+   </script>
+</body>
+
+</html>

@@ -1,0 +1,178 @@
+<html>
+
+  <head>
+	  	<script>
+       		function show()
+	   		  {
+			   var hideobj=document.getElementById("hidebg");
+			   hidebg.style.display="block"; 
+			   hidebg.style.height=document.body.clientHeight+"px"; 
+			   document.getElementById("hidebox").style.display="block"; 
+			   }
+			function hide()
+			{
+			   document.getElementById("hidebg").style.display="none";
+			   document.getElementById("hidebox").style.display="none";
+			}
+		</script>
+	<style>
+		.title{
+		background-color:blue;
+		font-weight:bold;
+		color:white;
+		position:absolute;
+		top:0;
+		left:0;
+		}
+		
+		.icon{
+		position:absolute;
+		top:0;
+		right:0;
+		background-color:white;
+		}
+		.price{
+		background-color:white;
+		text-align:center;
+		font-weight:bold;
+		}
+			
+		.alert{
+		background-color:white;
+		background-color:center;
+		border:5px solid red;
+		border-radius:7px;
+		width:30%;
+		height:30%;
+		text-align:center;
+		position:fixed;
+		top:200px;
+		left:450px;
+		z-index:1;
+		padding:20px;
+		}
+		nav{
+		background-color:black;
+		border:3px solid darkred;
+		width:100%;
+		}
+		nav a{
+		background-color:black;
+		text-align:center;
+		border:2px solid darkred;
+		padding-left:40px;
+		color:white;
+		text-decoration:none;
+		margin:100px;
+		}
+		.card{
+		background-color:#D3D3D3;
+		border:1px solid blue;
+		border-radius:3px;
+		position:relative;
+		margin-left:60px;
+		margin:40px;
+		}
+		.card1{
+		display:flex;
+		flex-direction:row;
+		justify-content:center;
+		}
+		.card2{
+		display:flex;
+		flex-direction:row;
+		justify-content:center;
+		}
+		#hidebg { position:absolute;left:0px;top:0px;
+			background-color:#000;
+			width:100%; 
+			filter:alpha(opacity=60);
+			opacity:0.6; 
+			display:none;
+			z-Index:2;}
+	  #hidebox { 
+			   border:5px solid red;
+			   position:absolute;
+			   width:400px;height:300px;
+			   top:200px;left:30%;
+			   background-color:
+			   #fff;display:none;
+			   cursor:pointer;
+			   text-align: center;
+			   z-Index:3;}
+	   #content { 
+		   font-size: large;
+		   color:red;
+		   text-align:center;
+		   cursor:pointer;
+		   z-Index:1;}
+	
+	</style>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Prices</a>
+        <a href="#">Contacts</a>
+        <a href="#">Opportunities</a>
+      </nav>
+    </header>
+    <section>
+	<div class="card1">
+      <div class="card first">
+        <img src="http://via.placeholder.com/150x150"/>
+        <div class="price">10.000 $</div>
+        <div class="title">BMW X6</div>
+        <a href="#"><img width="30px" class="icon" src="https://image.flaticon.com/icons/png/512/2/2772.png"/></a>
+      </div>
+      
+      <div class="card">
+        <img src="http://via.placeholder.com/150x150"/>
+        <div class="price">10.000 $</div>
+        <div class="title">Mercedes C100</div>
+        <a href="#"><img width="30px" class="icon" src="https://image.flaticon.com/icons/png/512/2/2772.png"/></a>
+      </div>
+      
+      
+      <div class="card">
+        <img src="http://via.placeholder.com/150x150"/>
+        <div class="price">10.000 $</div>
+        <div class="title">BMW X5</div>
+        <a href="#"><img width="30px" class="icon" src="https://image.flaticon.com/icons/png/512/2/2772.png"/></a>
+      </div>
+	  </div>
+      <div class="card2">
+      <div class="card">
+        <img src="http://via.placeholder.com/150x150"/>
+        <div class="price">10.000 $</div>
+        <div class="title">Mitsibushi <p>Outlander</p></div>
+        <a href="#"><img width="30px" class="icon" src="https://image.flaticon.com/icons/png/512/2/2772.png"/></a>
+      </div>
+      
+      <div class="card">
+        <img src="http://via.placeholder.com/150x150"/>
+        <div class="price">10.000 $</div>
+        <div class="title">Audi A8</div>
+        <a href="#"><img width="30px" class="icon" src="https://image.flaticon.com/icons/png/512/2/2772.png"/></a>
+      </div>
+      
+      <div class="card">
+        <img src="http://via.placeholder.com/150x150"/>
+        <div class="price">10.000 $</div>
+        <div class="title">BMW X6</div>
+        <a href="#"><img width="30px" class="icon" src="https://image.flaticon.com/icons/png/512/2/2772.png"/></a>
+      </div>
+	  </div>
+	  <div id="hidebg"></div>
+	  <div id="hidebox" onClick="hide();">
+        <h1>Welcome to Wheels.kz</h1>
+        <p>If you have any questions, please contact us by no: 87017023535</p>
+        <p>The best cars with the best prices are present on our website and application</p>
+      </div>
+	  <div id="content" onClick="show();">Click here to show!</div>
+    </section>
+  </body>
+
+</html>
